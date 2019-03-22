@@ -1,0 +1,61 @@
+﻿@model IEnumerable<HorseRacing.Models.Horse>
+
+@{
+    ViewBag.Title = "Stable";
+}
+
+<h2>Stable</h2>
+
+@if (Model.Count() == 0)
+{
+    <p>
+        No horses are in the stable, @Html.ActionLink("create new", "Create")?
+    </p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skill)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Skill)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.Image)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.HorseId })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.HorseId })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseRacing", "HorseRacing\HorseRacing.csproj", "{B43DCBBE-43AA-4785-BAF5-BE46A99B5B74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HorseRacing.Tests", "HorseRacing.Tests\HorseRacing.Tests.csproj", "{CF2A6627-B855-4D55-A16E-DD32529BD17E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B43DCBBE-43AA-4785-BAF5-BE46A99B5B74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B43DCBBE-43AA-4785-BAF5-BE46A99B5B74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B43DCBBE-43AA-4785-BAF5-BE46A99B5B74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B43DCBBE-43AA-4785-BAF5-BE46A99B5B74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF2A6627-B855-4D55-A16E-DD32529BD17E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF2A6627-B855-4D55-A16E-DD32529BD17E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF2A6627-B855-4D55-A16E-DD32529BD17E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF2A6627-B855-4D55-A16E-DD32529BD17E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

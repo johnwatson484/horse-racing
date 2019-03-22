@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="~/Content/Images/race-horse.png">
+    <title>Horse Racing</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+            integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        @Html.ActionLink("Horse Racing", "Index", "Race", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarColor01">
+            <ul class="navbar-nav mr-auto">
+                @if (User.IsInRole("Admin"))
+                {
+                    <li>@Html.ActionLink("Horses", "Index", "Horses")</li>
+                }
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                @if (User.IsInRole("Admin"))
+                {
+                    @Html.Partial("_LoginPartial")
+                }
+            </form>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Lynx Magnus</p>
+            <address>
+                <strong>Email:</strong>   <a href="mailto:admin@lynxmagnus.com?Subject=Horse Racing" target="_top">admin@lynxmagnus.com</a><br />
+            </address>
+        </footer>
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

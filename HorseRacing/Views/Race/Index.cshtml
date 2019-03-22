@@ -1,0 +1,72 @@
+﻿@model HorseRacing.Models.Race
+
+@{
+    ViewBag.Title = "Horse Racing";
+}
+
+@if (Model.Entrants.Count == 0)
+{
+    <h3>Next race coming soon...</h3>
+}
+else
+{
+    <div class="card text-white bg-secondary mb-3" style="margin-top:2em;">
+        <div class="card-header">Next Race</div>
+        <div class="card-body">            
+            @using (Html.BeginForm())
+            {
+                for (int i = 0; i < Model.Entrants.Count; i++)
+                    {
+                    <div class="row" style="margin-bottom:2em;">
+                        <div class="col">
+                            <strong>@Html.DisplayFor(model => Model.Entrants[i].Number)</strong> @Html.DisplayFor(model => Model.Entrants[i].Horse.Name)
+                        </div>
+                        <div class="col no-mobile">
+                            @Html.DisplayFor(model => Model.Entrants[i].Horse.Description)
+                        </div>
+                        <div class="col">
+                            @Html.DisplayFor(model => Model.Entrants[i].Odds)
+                        </div>
+                        @*<div class="col">
+                                £@Html.TextBoxFor(model => Model.Entrants[i].Stake, new { @Value = Model.Entrants[i].Stake > 0 ? Model.Entrants[i].Stake.ToString() : "" })
+                            </div>*@
+                        <div class="col">
+                            <button type="button" class="btn btn-primary selector">Select</button>@Html.HiddenFor(model => Model.Entrants[i].Selected, new { @class = "selected-value" })
+                        </div>
+                    </div>
+
+
+
+                    @Html.HiddenFor(model => Model.Entrants[i].Number)
+                    @Html.HiddenFor(model => Model.Entrants[i].Horse.HorseId)
+                    @Html.HiddenFor(model => Model.Entrants[i].Horse.Name)
+                    @Html.HiddenFor(model => Model.Entrants[i].Horse.Description)
+                    @Html.HiddenFor(model => Model.Entrants[i].Horse.Skill)
+                    @Html.HiddenFor(model => Model.Entrants[i].Odds)
+                }
+
+                <button type="submit" class="btn btn-success btn-lg disabled" id="start">Start Race</button>
+            }
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script>
+        $('.selector').on('click', function () {
+            $('.selector').each(function () {
+                $(this).html('Select')
+                $(this).addClass('btn-primary');
+                $(this).removeClass('btn-success');
+                $(this).closest('.row').find('.selected-value').val(false);
+            });
+
+            $(this).html('Selected')
+            $(this).removeClass('btn-primary');
+            $(this).addClass('btn-success');
+            $(this).closest('.row').find('.selected-value').val(true);
+            $('#start').removeClass('disabled');
+        });
+    </script>
+}
+
