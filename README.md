@@ -2,7 +2,11 @@
 
 Simple horse racing game.
 
-### Prerequisites
+## Status
+
+[![Build status](https://johnwatson484.visualstudio.com/John%20D%20Watson/_apis/build/status/Horse%20Racing)](https://johnwatson484.visualstudio.com/John%20D%20Watson/_build/latest?definitionId=10)
+
+## Prerequisites
 
 Visual Studio
 SQL Server
